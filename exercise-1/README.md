@@ -1,0 +1,1 @@
+Print your name and your best friend's name using Println twice
