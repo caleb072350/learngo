@@ -1,20 +1,23 @@
 package main
 
-func main() {
-	var books [5]string
-	books[0] = "dracula"
-	books[1] = "1984"
-	books[2] = "island"
+import "fmt"
 
-	newBooks := [5]string{"ulysses", "fire"}
-	if books == newBooks {
-
+func twoSum(nums []int, target int) []int {
+	m := make(map[int]int)
+	for k, v := range nums {
+		idx, ok := m[target-v]
+		if ok {
+			return []int{idx, k}
+		}
+		m[v] = k
 	}
-	books = newBooks
+	return nil
+}
 
-	games := []string{"pokemon", "sims"}
-	newGames := []string{"pacman", "doom", "pong"}
-	newGames = games
-	games = nil
-
+func main() {
+	nums := []int{2, 7, 11, 15}
+	res := twoSum(nums, 9)
+	for _, val := range res {
+		fmt.Println(val)
+	}
 }
